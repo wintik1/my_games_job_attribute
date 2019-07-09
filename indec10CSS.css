@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{ padding: 0;
+		margin: 0;}
+.container{
+	margin-left:auto;
+	margin-right: auto;
+	border: 1px dashed green;
+	display:grid;
+	grid-template-columns: auto;
+	
+	
+	
+}
+.logo {
+	text-align: center;
+	font-size: 30px;
+	color: red;
+	min-height: 200px;
+	background-color: aquamarine;
+	}
+
+.main {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items:flex-start;
+	
+}
+input[type="checkbox"] {visibility: hidden;}
+.check { color: green;
+		  padding-top: 2px;
+		  font-size: 20px;
+		  min-height: 70px;
+		
+	
+}
+
+
+/*полоска прокрутки*/
+.check::after {
+	position: absolute;
+	content: "" ;
+	width: 150px;
+	height: 2px;
+	left: 170px;
+	border-top: 4px solid black;
+	box-shadow:inset  1px 1px 2px rgba(0, 0, 0, 0.9),
+		inset  1px -1px 2px rgba(0, 0, 0, 0.9);
+	border-radius: 50%;
+	z-index:1;	
+} 
+/*бегунок прокрутки*/
+.check::before {
+	position: absolute;
+	content: "" ;
+	width: 30px;
+	height: 30px;
+	left: 150px;
+	background-color:red;
+	border-radius: 50%;
+	box-shadow: inset 2px 2px 4px red,
+			inset	2px -2px 4px white,
+			inset	-2px 2px 4px red,		inset	-2px -2px 4px green;
+	transition: 800ms;
+	z-index:5;
+	
+}
+.check_block {	
+	position: relative;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		margin-top: 30px;
+		margin-bottom: 50px
+}
+
+.check1::after {top: 310px;} 
+.check1::before {top: 300px;}
+
+.check2::after {top: 410px;} 
+.check2::before {top: 400px;}
+
+.check3::after {top: 505px;} 
+.check3::before {top: 495px;}
+
+#chetyre1:checked +	label::before {
+	left: 300px;}
+#chetyre2:checked +	label::before {
+	left: 300px;}
+#chetyre3:checked +	label::before {
+	left: 300px;}
